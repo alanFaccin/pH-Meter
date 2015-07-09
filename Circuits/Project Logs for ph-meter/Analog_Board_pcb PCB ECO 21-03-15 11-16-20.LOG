@@ -1,0 +1,56 @@
+Added Component: Designator=C3(1608[0603])
+Added Component: Designator=C4(1608[0603])
+Added Component: Designator=P1(HDR1X16)
+Added Component: Designator=R7(6-0805_L)
+Added Component: Designator=R8(6-0805_M)
+Added Component: Designator=Y1(3SMXA)
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=SCL Pin=IC4-14
+Added Pin To Net: NetName=SDA Pin=IC4-15
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=VDD Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P1-7
+Added Pin To Net: NetName=GND Pin=P1-8
+Added Pin To Net: NetName=GND Pin=P1-9
+Added Pin To Net: NetName=GND Pin=P1-10
+Added Pin To Net: NetName=VDD Pin=R7-2
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=LCD-D4 Pin=IC4-25
+Added Pin To Net: NetName=LCD-D4 Pin=P1-11
+Added Net: Name=LCD-D4
+Added Pin To Net: NetName=LCD-D5 Pin=IC4-26
+Added Pin To Net: NetName=LCD-D5 Pin=P1-12
+Added Net: Name=LCD-D5
+Added Pin To Net: NetName=LCD-D6 Pin=IC4-27
+Added Pin To Net: NetName=LCD-D6 Pin=P1-13
+Added Net: Name=LCD-D6
+Added Pin To Net: NetName=LCD-D7 Pin=IC4-28
+Added Pin To Net: NetName=LCD-D7 Pin=P1-14
+Added Net: Name=LCD-D7
+Added Pin To Net: NetName=LCD-EN Pin=IC4-23
+Added Pin To Net: NetName=LCD-EN Pin=P1-6
+Added Net: Name=LCD-EN
+Added Pin To Net: NetName=LCD-RS Pin=IC4-24
+Added Pin To Net: NetName=LCD-RS Pin=P1-4
+Added Net: Name=LCD-RS
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=NetC3_1 Pin=IC4-9
+Added Pin To Net: NetName=NetC3_1 Pin=Y1-2
+Added Net: Name=NetC3_1
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=NetC4_1 Pin=IC4-10
+Added Pin To Net: NetName=NetC4_1 Pin=Y1-1
+Added Net: Name=NetC4_1
+Added Pin To Net: NetName=NetP1_3 Pin=P1-3
+Added Pin To Net: NetName=NetP1_3 Pin=R7-1
+Added Pin To Net: NetName=NetP1_3 Pin=R8-2
+Added Net: Name=NetP1_3
+Added Member To Class: ClassName=Main_Board Member=Component C3 
+Added Member To Class: ClassName=Main_Board Member=Component C4 
+Added Member To Class: ClassName=Main_Board Member=Component P1 Header 16
+Added Member To Class: ClassName=Main_Board Member=Component R7 Res3
+Added Member To Class: ClassName=Main_Board Member=Component R8 Res3
+Added Member To Class: ClassName=Main_Board Member=Component Y1 16Mhz
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

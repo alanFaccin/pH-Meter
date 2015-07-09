@@ -1,0 +1,8 @@
+Added Component: Designator=P3(HDR1X6)
+Added Pin To Net: NetName=VPP Pin=P3-1
+Added Pin To Net: NetName=VDD Pin=P3-2
+Added Pin To Net: NetName=GND Pin=P3-3
+Added Pin To Net: NetName=ICSPDAT Pin=P3-4
+Added Pin To Net: NetName=ICSPCLOCK Pin=P3-5
+Added Pin To Net: NetName=AUX Pin=P3-6
+Added Member To Class: ClassName=Main_Board Member=Component P3 Header 6

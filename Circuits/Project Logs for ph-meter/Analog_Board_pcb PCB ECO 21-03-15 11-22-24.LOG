@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=R7 Old Footprint=6-0805_L New Footprint=6-0805_M
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

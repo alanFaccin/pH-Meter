@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=ADDR Pin=H1-3
+Change Net Name : Old Net Name=ADDR New Net Name=GND
+Added Pin To Net: NetName=ADDR Pin=H1-3
+Added Net: Name=ADDR
+Added Member To Class: ClassName=Analog_Board_Schematic Member=Component R1 10K

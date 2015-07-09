@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=H2 NewDesignator=H1
+Added Member To Class: ClassName=Analog_Board_Schematic Member=Component IC1 MAX6101
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

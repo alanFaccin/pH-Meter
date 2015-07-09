@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=VDD Pin=C1-1
+Removed Pin From Net: NetName=GND Pin=C1-2
+Removed Pin From Net: NetName=VDD Pin=C2-1
+Removed Pin From Net: NetName=GND Pin=C2-2
+Removed Pin From Net: NetName=VBAT Pin=C3-1
+Removed Pin From Net: NetName=GND Pin=C3-2
+Change Component DesignItemId : Designator=C1 Old DesignItemId=CAP_CERAMIC0805 New DesignItemId=Cap Semi
+Change Component DesignItemId : Designator=C2 Old DesignItemId=CAP_CERAMIC0805 New DesignItemId=Cap Semi
+Change Component DesignItemId : Designator=C3 Old DesignItemId=CAP_CERAMIC0805 New DesignItemId=Cap Semi
+Change Component Footprint: Designator=C1 Old Footprint=6-0805_M New Footprint=C1206
+Change Component Footprint: Designator=C2 Old Footprint=6-0805_M New Footprint=C1206
+Change Component Footprint: Designator=C3 Old Footprint=6-0805_M New Footprint=C1206
+Change Component Comment : Designator=C1 Old Comment=10µF New Comment=
+Change Component Comment : Designator=C2 Old Comment=10µF New Comment=
+Change Component Comment : Designator=C3 Old Comment=10µF New Comment=
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=VDD Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=VDD Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=VBAT Pin=C3-2

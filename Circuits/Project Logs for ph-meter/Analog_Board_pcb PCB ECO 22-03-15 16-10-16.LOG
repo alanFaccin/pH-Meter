@@ -1,0 +1,5 @@
+Added Component: Designator=P?(HDR1X2)
+Added Pin To Net: NetName=VBAT Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Member To Class: ClassName=Analog_Board_Schematic Member=Component C1 10µF
+Added Member To Class: ClassName=Main_Board Member=Component P? Header 2

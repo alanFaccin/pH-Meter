@@ -1,0 +1,29 @@
+Removed Member From Class: ClassName=Main_Board Member=H1
+Change Component Designator: OldDesignator=H1 NewDesignator=H2
+Change Component Designator: OldDesignator=R1 NewDesignator=R5
+Change Component Designator: OldDesignator=R2 NewDesignator=R6
+Change Component Designator: OldDesignator=R3 NewDesignator=R1
+Change Component Designator: OldDesignator=R4 NewDesignator=R2
+Change Component Designator: OldDesignator=R5 NewDesignator=R3
+Change Component Designator: OldDesignator=R6 NewDesignator=R4
+Change Component Designator: OldDesignator=R8 NewDesignator=R9
+Change Component Designator: OldDesignator=TEMP NewDesignator=TEMP1
+Added Component: Designator=C5(0402)
+Added Component: Designator=R8(6-0805_M)
+Added Component: Designator=S1(IT-2175)
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=VDD Pin=C5-2
+Added Pin To Net: NetName=VDD Pin=R8-2
+Added Pin To Net: NetName=GND Pin=S1-1
+Added Pin To Net: NetName=PWM1 Pin=IC4-13
+Added Net: Name=PWM1
+Added Pin To Net: NetName=PWM2 Pin=IC4-12
+Added Net: Name=PWM2
+Added Pin To Net: NetName=SWITCH-1 Pin=IC4-2
+Added Pin To Net: NetName=SWITCH-1 Pin=R8-1
+Added Pin To Net: NetName=SWITCH-1 Pin=S1-2
+Added Net: Name=SWITCH-1
+Added Member To Class: ClassName=Main_Board Member=Component C5 Cap Semi
+Added Member To Class: ClassName=Main_Board Member=Component H2 Header 7
+Added Member To Class: ClassName=Main_Board Member=Component R9 Res3
+Added Member To Class: ClassName=Main_Board Member=Component S1 SW-PB

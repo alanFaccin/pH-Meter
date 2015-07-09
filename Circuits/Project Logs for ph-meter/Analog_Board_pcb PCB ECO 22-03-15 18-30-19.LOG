@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VBAT Pin=H1-1
+Removed Pin From Net: NetName=SCL Pin=IC4-14
+Removed Pin From Net: NetName=SDA Pin=IC4-15
+Removed Pin From Net: NetName=VBAT Pin=R5-1
+Removed Member From Class: ClassName=Analog_Board_Schematic Member=PH_IN
+Change Component Footprint: Designator=L1 Old Footprint=INDC3216 New Footprint=L1W-2512
+Added Pin To Net: NetName=AIN1 Pin=IC2-3

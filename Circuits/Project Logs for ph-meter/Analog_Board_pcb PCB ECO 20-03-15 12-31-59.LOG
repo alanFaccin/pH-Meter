@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=U1 NewDesignator=IC4
+Change Component Designator: OldDesignator=U? NewDesignator=IC3
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

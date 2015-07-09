@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VBAT Pin=H1-1
+Removed Pin From Net: NetName=VBAT Pin=R5-1
+Change Component Footprint: Designator=Y1 Old Footprint=3SMXA New Footprint=4SMX
+Change Component Footprint: Designator=IC4 Old Footprint=MCHP-SOIC-SO28_N New Footprint=MCHP-SOIC-SO28_L
+Change Net Name : Old Net Name=VBAT New Net Name=NetC3_2

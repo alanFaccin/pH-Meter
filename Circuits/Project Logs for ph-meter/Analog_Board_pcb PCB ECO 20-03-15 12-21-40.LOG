@@ -1,0 +1,9 @@
+Change Component Footprint: Designator=C1 Old Footprint=0805 New Footprint=6-0805_M
+Added Component: Designator=C2(6-0805_M)
+Added Pin To Net: NetName=VDD Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=ALERT Pin=R5-2
+Added Pin To Net: NetName=ALERT Pin=U?-2
+Added Member To Class: ClassName=Analog_Board_Schematic Member=Component C2 10µF
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

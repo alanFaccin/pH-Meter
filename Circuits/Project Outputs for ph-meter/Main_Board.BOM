@@ -1,0 +1,154 @@
+Bill of Material for 
+On 15/05/15 at 11:42:51
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+                     C1206            5    C1, C2, C3, C4, C5           Capacitor (Semiconductor SIM Model) 
+ 10K                 6-0805_M         4    R1, R2, R3, R5               <p><b>Resistors</b></p>
+<b>0402</b> - 0402 Surface Mount Package
+<ul>
+<li>22 Ohm 1% 1/16W [Digikey: 311-22.0LRTR-ND]</li>
+<li>33 Ohm 5% 1/16W</li>
+<li>1.0K 5% 1/16W</li>
+<li>1.5K 5% 1/16W</li>
+<li>2.0K 1% 1/16W</li>
+<li>10.0K 1% 1/16W [Digikey: 311-10.0KLRTR-ND]</li>
+<li>10.0K 5% 1/16W [Digikey: RMCF0402JT10K0TR-ND]</li>
+<li>12.1K 1% 1/16W [Digikey: 311-22.0LRTR-ND]</li>
+<li>100.0K 5% 1/16W</li>
+</ul>
+<b>0603</b> - 0603 Surface Mount Package<br>
+<ul>
+<li>0 Ohm 1/10 Watt 1% Resistor</li>
+<li>15 Ohm 1/10 Watt 1% Resistor</li>
+<li>33 Ohm 1/10 Watt 1% Resistor</li>
+<li>49.9 Ohm 1/10 Watt 1% Resistor</li>
+<li>100 Ohm 1/10 Watt 1% Resistor</li>
+<li>150 Ohm 1/10 Watt 1% Resistor</li>
+<li>240 Ohm 1/10 Watt 1% Resistor</li>
+<li>390 Ohm 1/10 Watt 1% Resistor</li>
+<li>560 Ohm 1/10 Watt 1% Resistor</li>
+<li>680 Ohm 1/10 Watt 1% Resistor</li>
+<li>750 Ohm 1/10 Watt 1% Resistor</li>
+<li>1.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>1.5K Ohm 1/10 Watt 1% Resistor</li>
+<li>2.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>2.2K Ohm 1/10 Watt 1% Resistor</li>
+<li>3.3K Ohm 1/10 Watt 1% Resistor</li>
+<li>4.7K Ohm 1/10 Watt 1% Resistor</li>
+<li>10.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>12.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>12.1K Ohm 1/10 Watt 1% Resistor</li>
+<li>20.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>33.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>100.0K Ohm 1/10 Watt 1% Resistor</li>
+</ul>
+<b>0805</b> - 0805 Surface Mount Package
+<ul>
+<li>0 Ohm 1/8 Watt 1% Resistor</li>
+<li>33 Ohm 1/8 Watt 1% Resistor</li>
+<li>100 Ohm 1/8 Watt 1% Resistor</li>
+<li>150 Ohm 1/8 Watt 1% Resistor</li>
+<li>200 Ohm 1/8 Watt 1% Resistor</li>
+<li>240 Ohm 1/8 Watt 1% Resistor</li>
+<li>330 Ohm 1/8 Watt 1% Resistor</li>
+<li>390 Ohm 1/8 Watt 1% Resistor</li>
+<li>470 Ohm 1/8 Watt 1% Resistor</li>
+<li>1.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>1.5K Ohm 1/8 Watt 1% Resistor</li>
+<li>2.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>4.7K Ohm 1/8 Watt 1% Resistor</li>
+<li>5.1K Ohm 1/8 Watt 1% Resistor</li>
+<li>5.6K Ohm 1/8 Watt 1% Resistor</li>
+<li>10.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>22.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>33.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>100K Ohm 1/8 Watt 1% Resistor</li>
+</ul>
+<b>1206</b> - 1206 Surface Mount Package<br/>
+<br/>
+<b>2012</b> - 2010 Surface Mount Package<br/>
+<ul><li>0.11 Ohm 1/2 Watt 1% Resistor - Digikey: RHM.11UCT-ND</li></ul> 
+ 16Mhz               CFPX-93          1    Y1                           Surface Mount Quartz Crystal 
+ 1K                  6-0805_M         1    R6                           <p><b>Resistors</b></p>
+<b>0402</b> - 0402 Surface Mount Package
+<ul>
+<li>22 Ohm 1% 1/16W [Digikey: 311-22.0LRTR-ND]</li>
+<li>33 Ohm 5% 1/16W</li>
+<li>1.0K 5% 1/16W</li>
+<li>1.5K 5% 1/16W</li>
+<li>2.0K 1% 1/16W</li>
+<li>10.0K 1% 1/16W [Digikey: 311-10.0KLRTR-ND]</li>
+<li>10.0K 5% 1/16W [Digikey: RMCF0402JT10K0TR-ND]</li>
+<li>12.1K 1% 1/16W [Digikey: 311-22.0LRTR-ND]</li>
+<li>100.0K 5% 1/16W</li>
+</ul>
+<b>0603</b> - 0603 Surface Mount Package<br>
+<ul>
+<li>0 Ohm 1/10 Watt 1% Resistor</li>
+<li>15 Ohm 1/10 Watt 1% Resistor</li>
+<li>33 Ohm 1/10 Watt 1% Resistor</li>
+<li>49.9 Ohm 1/10 Watt 1% Resistor</li>
+<li>100 Ohm 1/10 Watt 1% Resistor</li>
+<li>150 Ohm 1/10 Watt 1% Resistor</li>
+<li>240 Ohm 1/10 Watt 1% Resistor</li>
+<li>390 Ohm 1/10 Watt 1% Resistor</li>
+<li>560 Ohm 1/10 Watt 1% Resistor</li>
+<li>680 Ohm 1/10 Watt 1% Resistor</li>
+<li>750 Ohm 1/10 Watt 1% Resistor</li>
+<li>1.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>1.5K Ohm 1/10 Watt 1% Resistor</li>
+<li>2.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>2.2K Ohm 1/10 Watt 1% Resistor</li>
+<li>3.3K Ohm 1/10 Watt 1% Resistor</li>
+<li>4.7K Ohm 1/10 Watt 1% Resistor</li>
+<li>10.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>12.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>12.1K Ohm 1/10 Watt 1% Resistor</li>
+<li>20.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>33.0K Ohm 1/10 Watt 1% Resistor</li>
+<li>100.0K Ohm 1/10 Watt 1% Resistor</li>
+</ul>
+<b>0805</b> - 0805 Surface Mount Package
+<ul>
+<li>0 Ohm 1/8 Watt 1% Resistor</li>
+<li>33 Ohm 1/8 Watt 1% Resistor</li>
+<li>100 Ohm 1/8 Watt 1% Resistor</li>
+<li>150 Ohm 1/8 Watt 1% Resistor</li>
+<li>200 Ohm 1/8 Watt 1% Resistor</li>
+<li>240 Ohm 1/8 Watt 1% Resistor</li>
+<li>330 Ohm 1/8 Watt 1% Resistor</li>
+<li>390 Ohm 1/8 Watt 1% Resistor</li>
+<li>470 Ohm 1/8 Watt 1% Resistor</li>
+<li>1.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>1.5K Ohm 1/8 Watt 1% Resistor</li>
+<li>2.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>4.7K Ohm 1/8 Watt 1% Resistor</li>
+<li>5.1K Ohm 1/8 Watt 1% Resistor</li>
+<li>5.6K Ohm 1/8 Watt 1% Resistor</li>
+<li>10.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>22.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>33.0K Ohm 1/8 Watt 1% Resistor</li>
+<li>100K Ohm 1/8 Watt 1% Resistor</li>
+</ul>
+<b>1206</b> - 1206 Surface Mount Package<br/>
+<br/>
+<b>2012</b> - 2010 Surface Mount Package<br/>
+<ul><li>0.11 Ohm 1/2 Watt 1% Resistor - Digikey: RHM.11UCT-ND</li></ul> 
+ ADS1015IDGSR        TI-DGS10_N       1    IC3                          12-Bit ADC with Integrated Multiplexer, PGA, Comparator, Oscillator, and Reference, -40 to 125 degC, 10-pin SOP (DGS10), Green (RoHS & no Sb/Br) 
+ BC846               SOT23_L          1    Q1                           NPN General-purpose Transistor 
+ Cap Semi            C1206            1    C6                           Capacitor (Semiconductor SIM Model) 
+ Header 16           HDR1X16          1    P7                           Header, 16-Pin       
+ Header 2            HDR1X2           5    P1, P3, P4, P5, P6           Header, 2-Pin        
+ Header 3            HDR1X3           1    TEMP1                        Header, 3-Pin        
+ Header 6            HDR1X6           1    P2                           Header, 6-Pin        
+ Header 7            HDR1X7           1    H1                           Header, 7-Pin        
+ Inductor            INDC4532         1    L1                           Inductor             
+ LMC6061             SO08             1    IC2                          <b>OP AMP</b>        
+ MAX6101             SOT23            1    IC1                          <b> 1.2V Voltage Reference</b> 50ppm/°C, SOT23, 3-Terminal<p>
+Source: <a href="http://datasheets.maxim-ic.com/en/ds/MAX6520.pdf"> Data sheet </a> 
+ PIC16F876-04/SO     MCHP-SOIC-SO28_L    1    IC4                          8-Bit CMOS Flash Microcontroller, 4 MHz, 22 I/O, 0 to 70 degC, 28-pin SOIC (SO28), Tube 
+ Res3                6-0805_M         9    R7, R8, R9, R10, R11, R12    Resistor             
+                                           R13, R14, R15
+ SW-PB                                4    S1, S2, S3, S4               Switch               
+ TPS61222DCKR        DCK6_N           1    U1                           Boost Voltage Converter with 0.7 to 5.5 V Input and 5 V Output, -40 to 85 degC, 6-Pin SC70 (DCK), Green (RoHS & no Sb/Br) 

@@ -1,0 +1,140 @@
+Protel Design System Design Rule Check
+PCB File : \\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc
+Date     : 20/04/15
+Time     : 13:19:10
+
+Processing Rule : Clearance Constraint (Gap=8mil) (IsVia),(IsVia)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=8mil) (IsPad),(IsVia)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=8mil) (IsPad),(IsPad)
+   Violation between Pad IC3-2(3894.686mil,4655.708mil)  Top and 
+                     Pad IC3-1(3914.37mil,4655.708mil)  Top
+   Violation between Pad IC3-3(3875mil,4655.708mil)  Top and 
+                     Pad IC3-2(3894.686mil,4655.708mil)  Top
+   Violation between Pad IC3-4(3855.316mil,4655.708mil)  Top and 
+                     Pad IC3-3(3875mil,4655.708mil)  Top
+   Violation between Pad IC3-5(3835.63mil,4655.708mil)  Top and 
+                     Pad IC3-4(3855.316mil,4655.708mil)  Top
+   Violation between Pad IC3-9(3894.686mil,4494.292mil)  Top and 
+                     Pad IC3-10(3914.37mil,4494.292mil)  Top
+   Violation between Pad IC3-8(3875mil,4494.292mil)  Top and 
+                     Pad IC3-9(3894.686mil,4494.292mil)  Top
+   Violation between Pad IC3-7(3855.316mil,4494.292mil)  Top and 
+                     Pad IC3-8(3875mil,4494.292mil)  Top
+   Violation between Pad IC3-6(3835.63mil,4494.292mil)  Top and 
+                     Pad IC3-7(3855.316mil,4494.292mil)  Top
+Rule Violations :8
+
+Processing Rule : Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),(IsVia)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),(IsPad)
+   Violation between Track (3875mil,4655.708mil)(3875mil,4741mil)  Top and 
+                     Pad IC3-2(3894.686mil,4655.708mil)  Top
+   Violation between Track (3875mil,4655.708mil)(3875mil,4741mil)  Top and 
+                     Pad IC3-4(3855.316mil,4655.708mil)  Top
+   Violation between Track (3875mil,4494.292mil)(3875mil,4555mil)  Top and 
+                     Pad IC3-9(3894.686mil,4494.292mil)  Top
+   Violation between Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top and 
+                     Pad IC3-8(3875mil,4494.292mil)  Top
+   Violation between Track (3875mil,4494.292mil)(3875mil,4555mil)  Top and 
+                     Pad IC3-7(3855.316mil,4494.292mil)  Top
+   Violation between Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top and 
+                     Pad IC3-6(3835.63mil,4494.292mil)  Top
+Rule Violations :6
+
+Processing Rule : Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),((InLayerClass('Signal Layers') AND IsTrack))
+   Violation between Track (3875mil,4494.292mil)(3875mil,4555mil)  Top and 
+                     Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top
+Rule Violations :1
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=8mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (Disabled)(IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+   Violation between Pad U1-5(4919.402mil,4158mil)  Top and 
+                     Pad U1-6(4919.402mil,4183.59mil)  Top
+   Violation between Pad U1-4(4919.402mil,4132.41mil)  Top and 
+                     Pad U1-5(4919.402mil,4158mil)  Top
+   Violation between Pad U1-2(4844.598mil,4158mil)  Top and 
+                     Pad U1-3(4844.598mil,4132.41mil)  Top
+   Violation between Pad U1-1(4844.598mil,4183.59mil)  Top and 
+                     Pad U1-2(4844.598mil,4158mil)  Top
+   Violation between Pad IC3-2(3894.686mil,4655.708mil)  Top and 
+                     Pad IC3-1(3914.37mil,4655.708mil)  Top
+   Violation between Pad IC3-3(3875mil,4655.708mil)  Top and 
+                     Pad IC3-2(3894.686mil,4655.708mil)  Top
+   Violation between Pad IC3-4(3855.316mil,4655.708mil)  Top and 
+                     Pad IC3-3(3875mil,4655.708mil)  Top
+   Violation between Pad IC3-5(3835.63mil,4655.708mil)  Top and 
+                     Pad IC3-4(3855.316mil,4655.708mil)  Top
+   Violation between Pad IC3-9(3894.686mil,4494.292mil)  Top and 
+                     Pad IC3-10(3914.37mil,4494.292mil)  Top
+   Violation between Pad IC3-8(3875mil,4494.292mil)  Top and 
+                     Pad IC3-9(3894.686mil,4494.292mil)  Top
+   Violation between Pad IC3-7(3855.316mil,4494.292mil)  Top and 
+                     Pad IC3-8(3875mil,4494.292mil)  Top
+   Violation between Pad IC3-6(3835.63mil,4494.292mil)  Top and 
+                     Pad IC3-7(3855.316mil,4494.292mil)  Top
+   Violation between Area Fill (3835mil,5040mil) (3900mil,5260mil)  Top Solder and 
+                     Pad IC2-4(3922.402mil,5180.236mil)  Top
+   Violation between Via (3680mil,4230mil) Top to Bottom and 
+                     Pad R5-1(3745mil,4275.63mil)  Top
+   Violation between Via (4800mil,5151.458mil) Top to Bottom and 
+                     Pad IC4-22(4800mil,5078.15mil)  Top
+   Violation between Via (4700mil,5151.458mil) Top to Bottom and 
+                     Pad IC4-24(4700mil,5078.15mil)  Top
+   Violation between Via (4550mil,5010.746mil) Top to Bottom and 
+                     Pad IC4-27(4550mil,5078.15mil)  Top
+   Violation between Via (4500mil,5151.458mil) Top to Bottom and 
+                     Pad IC4-28(4500mil,5078.15mil)  Top
+   Violation between Via (4650mil,4648.542mil) Top to Bottom and 
+                     Pad IC4-4(4650mil,4721.85mil)  Top
+   Violation between Via (4550mil,4648.542mil) Top to Bottom and 
+                     Pad IC4-2(4550mil,4721.85mil)  Top
+Rule Violations :20
+
+Processing Rule : Hole To Hole Clearance (Gap=8mil) (All),(All)
+   Violation between Pad Free-4(5040mil,4820mil)  Multi-Layer and 
+                     Pad Free-5(5040mil,4820mil)  Multi-Layer
+Rule Violations :1
+
+Processing Rule : Hole Size Constraint (Min=12mil) (Max=100000mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=100000mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=8mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 36
+Time Elapsed        : 00:00:01

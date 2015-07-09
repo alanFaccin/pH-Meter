@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=VDD Pin=R16-2
+Removed Pin From Net: NetName=GND Pin=S5-1
+Removed Member From Class: ClassName=Main_Board Member=R16
+Removed Member From Class: ClassName=Main_Board Member=S5
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=VBAT Pin=H2-1
+Removed Pin From Net: NetName=ALERT Pin=H2-2
+Removed Pin From Net: NetName=ADDR Pin=H2-3
+Removed Pin From Net: NetName=GND Pin=H2-4
+Removed Pin From Net: NetName=VDD Pin=H2-5
+Removed Pin From Net: NetName=SCL Pin=H2-6
+Removed Pin From Net: NetName=SDA Pin=H2-7
+Removed Member From Class: ClassName=Main_Board Member=H2

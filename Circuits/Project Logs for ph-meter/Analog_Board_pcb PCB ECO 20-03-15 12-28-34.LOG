@@ -1,0 +1,6 @@
+Added Component: Designator=C1(6-0805_M)
+Added Pin To Net: NetName=VDD Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Member To Class: ClassName=Analog_Board_Schematic Member=Component C1 10µF
+Added Room: Name=Analog_Board_Schematic
+Added Room: Name=Main_Board

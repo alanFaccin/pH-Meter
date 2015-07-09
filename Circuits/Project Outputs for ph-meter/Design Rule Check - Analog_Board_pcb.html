@@ -1,0 +1,528 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD15\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">20/04/15</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">13:19:10</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc" class="file"><acronym title="\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc">\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">36</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAKPC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBKPC">Clearance Constraint (Gap=8mil) (IsVia),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBKPC">Clearance Constraint (Gap=8mil) (IsPad),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBKPC">Clearance Constraint (Gap=8mil) (IsPad),(IsPad)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA4DKPC">Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEEKPC">Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),(IsPad)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAAGKPC">Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),((InLayerClass('Signal Layers') AND IsTrack))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAPGKPC">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAVGKPC">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA1GKPC">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDABHKPC">Silk to Silk (Clearance=8mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAHHKPC">Silk To Solder Mask (Clearance=10mil) (Disabled)(IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDANHKPC">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">20</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAKVKPC">Hole To Hole Clearance (Gap=8mil) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZVKPC">Hole Size Constraint (Min=12mil) (Max=100000mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA5VKPC">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAFWKPC">Width Constraint (Min=6mil) (Max=100000mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDALWKPC">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDARWKPC">Clearance Constraint (Gap=8mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAXWKPC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA3WKPC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">36</td>
+</tr>
+</table><br><hr><a name="IDAQBKPC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=8mil) (IsPad),(IsPad)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-2(3894.686mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-1(3914.37mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-3(3875mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-2(3894.686mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-4(3855.316mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-3(3875mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-5(3835.63mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-4(3855.316mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-9(3894.686mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-10(3914.37mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-8(3875mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-9(3894.686mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-7(3855.316mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-8(3875mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-6(3835.63mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-7(3855.316mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAEEKPC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),(IsPad)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4649.708mil|Location2.Y=4747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4649.708mil|Location2.Y=4747mil|Absolute=True">Track (3875mil,4655.708mil)(3875mil,4741mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-2(3894.686mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4649.708mil|Location2.Y=4747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4649.708mil|Location2.Y=4747mil|Absolute=True">Track (3875mil,4655.708mil)(3875mil,4741mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-4(3855.316mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True">Track (3875mil,4494.292mil)(3875mil,4555mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-9(3894.686mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True">Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-8(3875mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True">Track (3875mil,4494.292mil)(3875mil,4555mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-7(3855.316mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True">Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-6(3835.63mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAAGKPC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Clearance Constraint (Gap=8mil) ((InLayerClass('Signal Layers') AND IsTrack)),((InLayerClass('Signal Layers') AND IsTrack))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869mil|Location2.X=3881mil|Location1.Y=4488.292mil|Location2.Y=4561mil|Absolute=True">Track (3875mil,4494.292mil)(3875mil,4555mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3849.316mil|Location2.X=3861.316mil|Location1.Y=4439mil|Location2.Y=4500.292mil|Absolute=True">Track (3855.316mil,4445mil)(3855.316mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDANHKPC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True">Pad U1-5(4919.402mil,4158mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4172.716mil|Location2.Y=4194.464mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4172.716mil|Location2.Y=4194.464mil|Absolute=True">Pad U1-6(4919.402mil,4183.59mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4121.536mil|Location2.Y=4143.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4121.536mil|Location2.Y=4143.284mil|Absolute=True">Pad U1-4(4919.402mil,4132.41mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4899.67mil|Location2.X=4939.134mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True">Pad U1-5(4919.402mil,4158mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True">Pad U1-2(4844.598mil,4158mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4121.536mil|Location2.Y=4143.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4121.536mil|Location2.Y=4143.284mil|Absolute=True">Pad U1-3(4844.598mil,4132.41mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4172.716mil|Location2.Y=4194.464mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4172.716mil|Location2.Y=4194.464mil|Absolute=True">Pad U1-1(4844.598mil,4183.59mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4824.866mil|Location2.X=4864.33mil|Location1.Y=4147.126mil|Location2.Y=4168.874mil|Absolute=True">Pad U1-2(4844.598mil,4158mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-2(3894.686mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-1(3914.37mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-3(3875mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-2(3894.686mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-4(3855.316mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-3(3875mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-5(3835.63mil,4655.708mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4619.243mil|Location2.Y=4692.172mil|Absolute=True">Pad IC3-4(3855.316mil,4655.708mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-9(3894.686mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3905.465mil|Location2.X=3923.276mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-10(3914.37mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-8(3875mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3885.78mil|Location2.X=3903.591mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-9(3894.686mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-7(3855.316mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3866.095mil|Location2.X=3883.905mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-8(3875mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.724mil|Location2.X=3844.535mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-6(3835.63mil,4494.292mil)  Top</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3846.41mil|Location2.X=3864.222mil|Location1.Y=4457.828mil|Location2.Y=4530.757mil|Absolute=True">Pad IC3-7(3855.316mil,4494.292mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835mil|Location2.X=3900mil|Location1.Y=5040mil|Location2.Y=5260mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3835mil|Location2.X=3900mil|Location1.Y=5040mil|Location2.Y=5260mil|Absolute=True">Area Fill (3835mil,5040mil) (3900mil,5260mil)  Top Solder</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3907.402mil|Location2.X=3937.402mil|Location1.Y=5133.736mil|Location2.Y=5226.736mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3907.402mil|Location2.X=3937.402mil|Location1.Y=5133.736mil|Location2.Y=5226.736mil|Absolute=True">Pad IC2-4(3922.402mil,5180.236mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3652mil|Location2.X=3708mil|Location1.Y=4202mil|Location2.Y=4258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3652mil|Location2.X=3708mil|Location1.Y=4202mil|Location2.Y=4258mil|Absolute=True">Via (3680mil,4230mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.472mil|Location2.X=3777.528mil|Location1.Y=4245.071mil|Location2.Y=4306.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.472mil|Location2.X=3777.528mil|Location1.Y=4245.071mil|Location2.Y=4306.189mil|Absolute=True">Pad R5-1(3745mil,4275.63mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4772mil|Location2.X=4828mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4772mil|Location2.X=4828mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True">Via (4800mil,5151.458mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.189mil|Location2.X=4814.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4785.189mil|Location2.X=4814.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True">Pad IC4-22(4800mil,5078.15mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4672mil|Location2.X=4728mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4672mil|Location2.X=4728mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True">Via (4700mil,5151.458mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4685.189mil|Location2.X=4714.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4685.189mil|Location2.X=4714.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True">Pad IC4-24(4700mil,5078.15mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4522mil|Location2.X=4578mil|Location1.Y=4982.746mil|Location2.Y=5038.746mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4522mil|Location2.X=4578mil|Location1.Y=4982.746mil|Location2.Y=5038.746mil|Absolute=True">Via (4550mil,5010.746mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4535.189mil|Location2.X=4564.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4535.189mil|Location2.X=4564.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True">Pad IC4-27(4550mil,5078.15mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4472mil|Location2.X=4528mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4472mil|Location2.X=4528mil|Location1.Y=5123.458mil|Location2.Y=5179.458mil|Absolute=True">Via (4500mil,5151.458mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4485.189mil|Location2.X=4514.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4485.189mil|Location2.X=4514.811mil|Location1.Y=5040.701mil|Location2.Y=5115.598mil|Absolute=True">Pad IC4-28(4500mil,5078.15mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4622mil|Location2.X=4678mil|Location1.Y=4620.542mil|Location2.Y=4676.542mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4622mil|Location2.X=4678mil|Location1.Y=4620.542mil|Location2.Y=4676.542mil|Absolute=True">Via (4650mil,4648.542mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4635.189mil|Location2.X=4664.811mil|Location1.Y=4684.402mil|Location2.Y=4759.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4635.189mil|Location2.X=4664.811mil|Location1.Y=4684.402mil|Location2.Y=4759.299mil|Absolute=True">Pad IC4-4(4650mil,4721.85mil)  Top</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4522mil|Location2.X=4578mil|Location1.Y=4620.542mil|Location2.Y=4676.542mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4522mil|Location2.X=4578mil|Location1.Y=4620.542mil|Location2.Y=4676.542mil|Absolute=True">Via (4550mil,4648.542mil) Top to Bottom</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4535.189mil|Location2.X=4564.811mil|Location1.Y=4684.402mil|Location2.Y=4759.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4535.189mil|Location2.X=4564.811mil|Location1.Y=4684.402mil|Location2.Y=4759.299mil|Absolute=True">Pad IC4-2(4550mil,4721.85mil)  Top</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAKVKPC"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Hole To Hole Clearance (Gap=8mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5007mil|Location2.X=5073mil|Location1.Y=4787mil|Location2.Y=4853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5007mil|Location2.X=5073mil|Location1.Y=4787mil|Location2.Y=4853mil|Absolute=True">Pad Free-4(5040mil,4820mil)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5007mil|Location2.X=5073mil|Location1.Y=4787mil|Location2.Y=4853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=\\psf\Google Drive\PH-METER\circuiti\Complete\V 0.1\Analog_Board_pcb.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5007mil|Location2.X=5073mil|Location1.Y=4787mil|Location2.Y=4853mil|Absolute=True">Pad Free-5(5040mil,4820mil)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

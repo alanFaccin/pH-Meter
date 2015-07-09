@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=LCD-RS Pin=IC4-27
+Added Component: Designator=P2(HDR1X6)
+Added Pin To Net: NetName=LCD-RS Pin=IC4-21
+Added Pin To Net: NetName=GND Pin=P2-4
+Added Pin To Net: NetName=VDD Pin=P2-5
+Added Pin To Net: NetName=AUX Pin=P2-1
+Added Net: Name=AUX
+Added Pin To Net: NetName=ICSPCLOCK Pin=IC4-27
+Added Pin To Net: NetName=ICSPCLOCK Pin=P2-2
+Added Net: Name=ICSPCLOCK
+Added Pin To Net: NetName=ICSPDAT Pin=IC4-28
+Added Pin To Net: NetName=ICSPDAT Pin=P2-3
+Added Net: Name=ICSPDAT
+Added Pin To Net: NetName=VPP Pin=IC4-1
+Added Pin To Net: NetName=VPP Pin=P2-6
+Added Net: Name=VPP
+Added Member To Class: ClassName=Main_Board Member=Component C1 10µF
+Added Member To Class: ClassName=Main_Board Member=Component C2 10µF
+Added Member To Class: ClassName=Main_Board Member=Component H1 Header 7
+Added Member To Class: ClassName=Main_Board Member=Component IC1 MAX6101
+Added Member To Class: ClassName=Main_Board Member=Component IC2 LMC6061
+Added Member To Class: ClassName=Main_Board Member=Component IC3 ADS1015IDGSR
+Added Member To Class: ClassName=Main_Board Member=Component R1 10K
+Added Member To Class: ClassName=Main_Board Member=Component R2 10K
+Added Member To Class: ClassName=Main_Board Member=Component R3 10K
+Added Member To Class: ClassName=Main_Board Member=Component R5 10K
+Added Member To Class: ClassName=Main_Board Member=Component R6 1K
+Added Member To Class: ClassName=Main_Board Member=Component TEMP1 Header 3

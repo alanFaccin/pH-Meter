@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=R4-2
+Removed Member From Class: ClassName=Analog_Board_Schematic Member=R4
+Added Pin To Net: NetName=GND Pin=H1-3
+Added Pin To Net: NetName=GND Pin=IC3-1
+Change Net Name : Old Net Name=GND New Net Name=ADDR

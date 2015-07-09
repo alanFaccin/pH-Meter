@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VPP Pin=P3-1
+Removed Pin From Net: NetName=VDD Pin=P3-2
+Removed Pin From Net: NetName=GND Pin=P3-3
+Removed Pin From Net: NetName=ICSPDAT Pin=P3-4
+Removed Pin From Net: NetName=ICSPCLOCK Pin=P3-5
+Removed Pin From Net: NetName=AUX Pin=P3-6
+Removed Member From Class: ClassName=Main_Board Member=P3

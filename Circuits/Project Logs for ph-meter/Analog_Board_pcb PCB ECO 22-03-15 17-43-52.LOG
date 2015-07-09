@@ -1,0 +1,13 @@
+Added Component: Designator=Q1(SOT23_L)
+Added Component: Designator=U1(DCK6_N)
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_3 Pin=Q1-3
+Added Pin To Net: NetName=VBAT Pin=U1-1
+Added Pin To Net: NetName=VDD Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=VDD Pin=U1-4
+Added Pin To Net: NetName=NetL1_2 Pin=U1-5
+Added Pin To Net: NetName=VBAT Pin=U1-6
+Added Member To Class: ClassName=Main_Board Member=Component Q1 BC846
+Added Member To Class: ClassName=Main_Board Member=Component U1 TPS61222DCKR
